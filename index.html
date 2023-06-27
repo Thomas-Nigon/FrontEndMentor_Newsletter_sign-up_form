@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+  </style>
+</head>
+<body>
+  <header> <img src="../03-FrontEndMentor_Newsletter_sign-up_form/assets/images/illustration-sign-up-mobile.svg" alt="A chart illustration"> </header>
+    <!-- Sign-up form start -->
+  <div class="mainContainer">
+    <h1>Stay updated!</h1>
+    <p> Join 60,000+ product managers receiving monthly updates on:</p>
+    <ul class="productList">  
+      <li> Product discovery and building what matters </li>
+      <li> Measuring to ensure updates are a success </li>
+      <li> And much more! </li>
+    </ul>
+
+    <form 
+      action="/formData.txt" method="post"
+      class="contactForm"
+      target="./confirmation.html">
+      <ul class="formList">
+        <li><label for="mail">Email:</label></li>
+        <li><input class="defaultState" type="email" id="mail" name="user_email" value="email@company.com" /></li>
+        <li><button type="submit">Send your message</button></li>
+      </ul>      
+    </form>
+
+  </div>
+
+  <!-- Sign-up form end -->
+
+  <!-- Success message start -->
+
+<!--   Thanks for subscribing!
+
+  A confirmation email has been sent to ash@loremcompany.com. 
+  Please open it and click the button inside to confirm your subscription.
+
+  Dismiss message -->
+
+  <!-- Success message end -->
+  
+  
+  </div>
+  <footer> <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Thomas NIGON</a>. </footer>
+</body>
+
+<script>
+  const form = document.querySelector('form')
+  const mailInput = document.querySelector('input')
+
+  function sendForm(e) {
+    e.preventDefault();
+    console.log(e)
+    //window.open('confirmation.html')
+    
+
+  }
+  function activeMailInput(e){
+    console.log(e)
+    mailInput.removeAttribute('class');
+    mailInput.classList.add('activeState')
+    const outsideClick = !mailInput.contains(event.target);
+    if (outsideClick){
+      mailInput.removeAttribute('class');
+      mailInput.classList.add('defaultState')
+    }
+  }
+
+  mailInput.addEventListener('click', activeMailInput)
+  form.addEventListener('submit', sendForm)
+  document.addEventListener('click', activeMailInput)
+  
+</script>
+</html>
+
+
+//form validation
+<!-- 
+<script>  
+  function validateform(){  
+  var name=document.myform.name.value;  
+  var password=document.myform.password.value;  
+    
+  if (name==null || name==""){  
+    alert("Name can't be blank");  
+    return false;  
+  }else if(password.length<6){  
+    alert("Password must be at least 6 characters long.");  
+    return false;  
+    }  
+  }  
+  </script>  
+
+ -->

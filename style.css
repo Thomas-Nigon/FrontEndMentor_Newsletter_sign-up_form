@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 2em 0px 2em;
+}
+h1{
+    margin: 20px 0 20px 0;
+}
+.productList{
+    margin-left: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 20px 0;
+}
+.formList{
+    list-style: none;
+    margin-top: 20px;
+}
+button{
+    margin-top: 1em;
+    padding: 1em;
+    width:100%;
+}
+input, textarea{
+    width: 100%;    
+}
+.defaultState {
+    color: rgba(211, 211, 211, 0.9);
+}
+.activeState {
+    color: black;
+}
+.errorState{
+    color:red;
+}
+footer{
+    margin: auto 0px 10px 0px;
+    text-align: center;
+
+}
