@@ -8,100 +8,56 @@
   <link rel="stylesheet" href="style.css">
   
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-
-  </style>
 </head>
 <body>
-  <header> <img src="./assets/images/illustration-sign-up-mobile.svg" alt="A chart illustration"> </header>
+  <section id="state_1">
+    <div  class="state_1Container">
+    <header> <img class="mobilePic" src="./assets/images/illustration-sign-up-mobile.svg" alt="A chart illustration">
+            <img class="desktopPic" src="./assets/images/illustration-sign-up-desktop.svg" alt="A chart illustration">
+    </header>
     <!-- Sign-up form start -->
-  <div class="mainContainer">
-    <h1>Stay updated!</h1>
-    <p> Join 60,000+ product managers receiving monthly updates on:</p>
-    <ul class="productList">  
-      <li> Product discovery and building what matters </li>
-      <li> Measuring to ensure updates are a success </li>
-      <li> And much more! </li>
-    </ul>
+    <div class="mainContainer">
+      <h1>Stay updated!</h1>
+      <p> Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul class="productList">  
+        <li class="productItem"> Product discovery and building what matters </li>
+        <li class="productItem"> Measuring to ensure updates are a success </li>
+        <li class="productItem"> And much more! </li>
+      </ul>
 
-    <form 
-      action="/formData.txt" method="post"
-      class="contactForm"
-      target="./confirmation.html">
-      <ul class="formList">
-        <li><label for="mail">Email:</label></li>
-        <li><input class="defaultState" type="email" id="mail" name="user_email" value="email@company.com" /></li>
-        <li><button type="submit">Send your message</button></li>
-      </ul>      
-    </form>
+      <form 
+        action="/formData.txt" method="post"
+        class="contactForm"
+        target="./confirmation.html">
+        <ul class="formList">
+          <li><label class="emailHeader" for="mail">Email adress: 
+                    <span id="warningMessage" class="hidden">Valid Email required</span> </label> </li> 
+          <li><input class="defaultState" 
+            type="email" 
+            id="mail" 
+            name="user_email" 
+            value="email@company.com" /></li>
+          <li><button type="submit">Subscribe to monthly newsletter</button></li>
+        </ul>      
+      </form>
+      </div>
+    </div>
+ </section>
 
-  </div>
-
-  <!-- Sign-up form end -->
-
-  <!-- Success message start -->
-
-<!--   Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message -->
-
-  <!-- Success message end -->
-  
-  
-  </div>
-  <footer> <div class="attribution">
+ <section id="state_2" class="hidden">
+    <div class="state_2Container">
+      <img class="confirmation" src="./assets/images/icon-success.svg" alt="validation logo, like ticking a box">
+      <h1>Thanks for subscribing!</h1>
+      <div>A confirmation email has been sent to <span id="remindMail"></span>. 
+        Please open it and click the button inside to confirm your subscription.  
+      </div> 
+      <button id="dismissButton" class="hidden"> Dismiss message</button> 
+    </div>
+  </section>
+  <footer>
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Thomas NIGON</a>. </footer>
+    Coded by <a href="#">Thomas NIGON</a>.
+  </footer>
 </body>
-
-<script>
-  const form = document.querySelector('form')
-  const mailInput = document.querySelector('input')
-
-  function sendForm(e) {
-    e.preventDefault();
-    console.log(e)
-    //window.open('confirmation.html')
-    
-
-  }
-  function activeMailInput(e){
-    console.log(e)
-    mailInput.removeAttribute('class');
-    mailInput.classList.add('activeState')
-    const outsideClick = !mailInput.contains(event.target);
-    if (outsideClick){
-      mailInput.removeAttribute('class');
-      mailInput.classList.add('defaultState')
-    }
-  }
-
-  mailInput.addEventListener('click', activeMailInput)
-  form.addEventListener('submit', sendForm)
-  document.addEventListener('click', activeMailInput)
-  
-</script>
+<script src="./script.js"></script>
 </html>
-
-<!-- 
-<script>  
-  function validateform(){  
-  var name=document.myform.name.value;  
-  var password=document.myform.password.value;  
-    
-  if (name==null || name==""){  
-    alert("Name can't be blank");  
-    return false;  
-  }else if(password.length<6){  
-    alert("Password must be at least 6 characters long.");  
-    return false;  
-    }  
-  }  
-  </script>  
-
- -->

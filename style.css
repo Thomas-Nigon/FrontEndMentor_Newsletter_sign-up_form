@@ -1,14 +1,49 @@
+@font-face {
+    font-family: roboto-Bold;
+    src: url(./assets/fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: roboto-Regular;
+    src: url(./assets/fonts/Roboto-Regular.ttf);
+}
+:root{
+    --activeState: hsl(4, 100%, 67%); /* tomato */
+    --gradientColor1: rgba(255,98,87,1);
+    --gradientColor2: rgba(252,176,69,1);
+    --titleColor: hsl(234, 29%, 20%);
+    --desktopBGC: hsl(234, 29%, 20%); /* Dark Slate Grey */
+    --textColor: hsl(235, 18%, 26%); /* Charcoal Grey */
+    --mailBorderColor: hsla(231, 7%, 60%, 0.5); /* grey */
+    --White: hsl(0, 0%, 100%); 
+ }
+
 * {
+    font-size: 16px;
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+    font-family: 'roboto-Regular';
+    color: var(--textColor)
 }
 body{
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+}
+#state_1{
+    background-color: white;
+}
+#state_2{
+    background-color: rgb(255, 255, 255);
+    margin: 0 2em 0px 2em;
+    
+}
+.hidden{
+    display: none;
+}
+.desktopPic{
+    display: none;
 }
 img {
     width: 100%;
@@ -21,9 +56,21 @@ img {
 }
 h1{
     margin: 20px 0 20px 0;
+    font-family: 'roboto-Bold';
+    color: var(--titleColor);
+    font-size: 2.5rem;
+}
+p{
+    font-size: 1.2rem;
+    margin-bottom: 10wh;
 }
 .productList{
-    margin-left: 15px;
+    margin: 15px 0 0px 20px; /* haut droit  bas gauche */
+    list-style-image: url(./assets/images/icon-list.svg);
+}
+.productItem{
+    padding-left: 20px;
+    margin: 0 0 10px 0;
 }
 
 form {
@@ -35,25 +82,153 @@ form {
     list-style: none;
     margin-top: 20px;
 }
+.emailHeader{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
 button{
-    margin-top: 1em;
-    padding: 1em;
+    margin-top: 1rem;
+    padding: 1rem;
     width:100%;
+    background-color: var(--titleColor);
+    color: white;
+    border-radius: 10px;
 }
 input, textarea{
-    width: 100%;    
+    width: 100%;   
+    border-color: var(--mailBorderColor);
+    border-width: 1px;
+    padding: 1rem;
+    border-radius: 10px;
 }
 .defaultState {
-    color: rgba(211, 211, 211, 0.9);
+    color: var(--mailBorderColor);
+    background-color: rgb(255, 255, 255);
 }
 .activeState {
-    color: black;
+    color: blue;
+    background-color: rgb(255, 255, 255);
 }
-.errorState{
+#warningMessage{
     color:red;
 }
-footer{
-    margin: auto 0px 10px 0px;
-    text-align: center;
-
+.errorState{
+    color: red;
+    background-color: rgba(255, 0, 0, 0.3);
 }
+#dismissButton{
+    margin: 20vh 0 4vh 0;
+    padding: 1rem;
+    width:100%;
+    background-color: var(--titleColor);
+    color: white;
+    border-radius: 10px;
+}
+#remindMail{
+    font-family: 'roboto-Bold';
+}
+img.confirmation{
+    width: 20%;
+    margin-top: 20vh;
+}
+
+footer{
+    background-color: white;
+    margin: auto 2em 0px 2em;
+    text-align: center;
+    color: black;
+}
+@media (min-width:500px) and (max-width:1440px) {
+    
+        body{
+            background-color: var(--desktopBGC);
+        }
+        #state_1, #state_2{
+            background-color: var(--desktopBGC);
+        }
+        .state_1Container{
+            display: flex;
+            /* width: 50vw; */
+            background-color: white;
+            flex-direction: row-reverse;
+            margin: 20vh auto auto auto;
+            border-radius: 15px;
+        }
+        .state_2Container{
+            height: 60vh;
+            /* width: 50vw; */
+            margin: 15vh auto 15vh auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 3vh 5vh 3vh 5vh;
+        }
+        header{
+            margin: 15px 15px 15px auto;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        img.confirmation{
+            width: 10%;
+            margin-top: 1vh;
+        }
+        .mobilePic {
+            display: none;
+        }
+        .desktopPic{
+            display: flex;
+        }
+        #dismissButton:hover{
+            background: linear-gradient(90deg, var(--gradientColor1), var(--gradientColor2));
+        }
+    }
+
+
+@media screen and (min-width: 1440px) { 
+    body{
+        background-color: var(--desktopBGC);
+    }
+    #state_1, #state_2{
+        background-color: var(--desktopBGC);
+    }
+    .state_1Container{
+        display: flex;
+        width: 50vw;
+        background-color: white;
+        flex-direction: row-reverse;
+        margin: 20vh auto auto auto;
+        border-radius: 15px;
+    }
+    .state_2Container{
+        height: 60vh;
+        width: 50vw;
+        margin: 15vh auto 15vh auto;
+        background-color: white;
+        border-radius: 15px;
+        padding: 3vh 5vh 3vh 5vh;
+    }
+    header{
+        margin: 15px 15px 15px auto;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    img.confirmation{
+        width: 10%;
+        margin-top: 1vh;
+    }
+    .mobilePic {
+        display: none;
+    }
+    .desktopPic{
+        display: flex;
+    }
+    #dismissButton:hover{
+        background: linear-gradient(90deg, var(--gradientColor1), var(--gradientColor2));
+    }
+}
+
